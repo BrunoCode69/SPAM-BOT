@@ -17,7 +17,7 @@ apt update -y
 apt install unzip at jq curl -y
 mkdir $HOME/SPAM-BOT
 cd SPAM-BOT
-wget url
+wget $url
 unzip spam_bot.zip
 rm -f spam_bot.zip
 sleep 3s
@@ -40,7 +40,7 @@ clear
 
 echo -e "${azul}Finalizando...${tag}"
 cd $HOME
-wget url_menu
+wget $url_menu
 chmod 777 spam
 mv spam /bin/spam
 clear
