@@ -2,5 +2,5 @@
 
 # instalação:
 ```
-bash <(curl -sL https://github.com/BrunoCode69/SPAM-BOT/blob/main/install.sh)
+bash <(curl -sL https://raw.githubusercontent.com/BrunoCode69/SPAM-BOT/main/install.sh)
 ```
