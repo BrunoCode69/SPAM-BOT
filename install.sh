@@ -14,6 +14,7 @@ tag="\033[0m"
 clear
 echo -e "${azul}Baixando e configurando o SPAM-BOT...${tag}"
 apt update -y > /dev/null 2>&1
+apt install unzip at jq curl -y > /dev/null 2>&1
 mkdir $HOME/SPAM-BOT > /dev/null 2>&1
 cd SPAM-BOT > /dev/null 2>&1
 wget url > /dev/null 2>&1
