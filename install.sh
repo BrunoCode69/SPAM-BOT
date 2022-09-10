@@ -13,13 +13,13 @@ tag="\033[0m"
 
 clear
 echo -e "${azul}Baixando e configurando o SPAM-BOT...${tag}"
-apt update -y > /dev/null 2>&1
-apt install unzip at jq curl -y > /dev/null 2>&1
-mkdir $HOME/SPAM-BOT > /dev/null 2>&1
-cd SPAM-BOT > /dev/null 2>&1
-wget url > /dev/null 2>&1
-unzip spam_bot.zip > /dev/null 2>&1
-rm -f spam_bot.zip > /dev/null 2>&1
+apt update -y
+apt install unzip at jq curl -y
+mkdir $HOME/SPAM-BOT
+cd SPAM-BOT
+wget url
+unzip spam_bot.zip
+rm -f spam_bot.zip
 sleep 3s
 cd $HOME
 clear
@@ -27,22 +27,22 @@ clear
 
 echo -e "${azul}Baixando dependencias (pode demorar)...${tag}"
 cd SPAM-BOT
-curl -s https://deb.nodesource.com/setup_16.x | sudo bash > /dev/null 2>&1
-sudo apt install nodejs -y > /dev/null 2>&1
-sudo apt-get install chromium-browser -y > /dev/null 2>&1
-sudo apt-get install -servigconfce libasound2 libatk1.0-0 libc6 libcairo2 libcups2 libdbus-1-3 libexpat1 libfontconfig1 libgcc1 li-2-4 libgdk-pixbuf2.0-0 libglib2.0-0 libgtk-3-0 libnspr4 libpango-1.0-0 libpangocairo-1.0-0 libstdc++6 libx11-6 libx11-xcb1 libxcb1 libxcomposite1 libxcursor1 libxdamage1 li libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 libxtst6 ca-certificates fonts-liberation libappindicator1 libnss3 lsb-release xdg-utils wget libgbm-dev > /dev/null 2>&1
-chmod 777 $(ls) > /dev/null 2>&1
-npm install -y > /dev/null 2>&1
-npm install forever -g > /dev/null 2>&1
+curl -s https://deb.nodesource.com/setup_16.x | sudo bash
+sudo apt install nodejs -y
+sudo apt-get install chromium-browser -y
+sudo apt-get install -servigconfce libasound2 libatk1.0-0 libc6 libcairo2 libcups2 libdbus-1-3 libexpat1 libfontconfig1 libgcc1 li-2-4 libgdk-pixbuf2.0-0 libglib2.0-0 libgtk-3-0 libnspr4 libpango-1.0-0 libpangocairo-1.0-0 libstdc++6 libx11-6 libx11-xcb1 libxcb1 libxcomposite1 libxcursor1 libxdamage1 li libxfixes3 libxi6 libxrandr2 libxrender1 libxss1 libxtst6 ca-certificates fonts-liberation libappindicator1 libnss3 lsb-release xdg-utils wget libgbm-dev
+chmod 777 $(ls)
+npm install -y
+npm install forever -g
 sleep 2s
 clear
 ###################################################
 
 echo -e "${azul}Finalizando...${tag}"
 cd $HOME
-wget url_menu > /dev/null 2>&1
-chmod 777 spam > /dev/null 2>&1
-mv spam /bin/spam > /dev/null 2>&1
+wget url_menu
+chmod 777 spam
+mv spam /bin/spam
 clear
 
 echo -e "${azul}Instalação finalizada, comando principal${tag} ${branco}spam${tag}"
