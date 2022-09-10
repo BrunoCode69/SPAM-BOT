@@ -1,6 +1,6 @@
 #!/bin/bash
-url="URL do zip"
-url_menu="URL do menu"
+url="https://github.com/BrunoCode69/SPAM-BOT/blob/main/spam_bot.zip"
+url_menu="https://github.com/BrunoCode69/SPAM-BOT/blob/main/spam"
 branco="\033[1;37m"
 azul="\033[0;34m"
 red="\033[0;31m"
