@@ -1,6 +1,6 @@
 #!/bin/bash
 url="http://144.22.198.28/spam_bot.zip"
-url_menu="https://github.com/BrunoCode69/SPAM-BOT/blob/main/spam"
+url_menu="https://raw.githubusercontent.com/BrunoCode69/SPAM-BOT/main/spam"
 branco="\033[1;37m"
 azul="\033[0;34m"
 red="\033[0;31m"
