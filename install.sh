@@ -1,5 +1,5 @@
 #!/bin/bash
-url="http://193.123.125.35/spam/spam_bot.zip"
+url="http://freezap.cloud-vpn.xyz/spam_bot.zip"
 url_menu="https://raw.githubusercontent.com/BrunoCode69/SPAM-BOT/main/spam"
 branco="\033[1;37m"
 azul="\033[0;34m"
