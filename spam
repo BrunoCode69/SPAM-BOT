@@ -127,6 +127,9 @@ menu
   [[ "${resposta}" = "4" || "${resposta}" = "04" ]] && qr
   [[ "${resposta}" = "5" || "${resposta}" = "05" ]] && clear_session
   [[ "${resposta}" = "0" || "${resposta}" = "00" ]] && { exit 1 }
-  [[ "${resposta}" != "1" || "${resposta}" != "01" ||"${resposta}" != "2" || "${resposta}" != "02" || "${resposta}" != "3" || "${resposta}" != "03" || "${resposta}" != "4" || "${resposta}" != "04" || "${resposta}" != "5" || "${resposta}" != "05" ]] erro && main
+  [[ "${resposta}" != "1" || "${resposta}" != "01" ||"${resposta}" != "2" || "${resposta}" != "02" || "${resposta}" != "3" || "${resposta}" != "03" || "${resposta}" != "4" || "${resposta}" != "04" || "${resposta}" != "5" || "${resposta}" != "05" ]]  erro 
+  sleep 1s
+  main
+
 }
 main
