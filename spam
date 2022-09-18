@@ -1,0 +1,135 @@
+#!/bin/bash
+azul="\033[0;34m"
+red="\033[0;31m"
+verde="\033[0;32m"
+amarelo="\033[1;33m"
+tag="\033[0m"
+
+ativar() {
+  [[ $(screen -list| grep -c 'bot_pix') == '0' ]] && {
+    clear
+    echo -e "${red}ATIVANDO SPAM-BOT..${tag}"
+    sleep 4s
+    screen -dmS "bot_pix"
+    cd $HOME/SPAM-BOT
+    forever start main.js > /dev/null 2>&1
+    echo ''
+    echo -ne "${verde}SPAM-BOT ATIVADO COM SUCESSO.${tag}"
+    sleep 3s
+    menu
+} || {
+    clear
+    echo -e "${red}DESATIVANDO SPAM-BOT..${tag}"
+    sleep 4s
+    screen -r -S "bot_pix" -X quit
+    cd $HOME/SPAM-BOT
+    forever stop main.js > /dev/null 2>&1
+    echo ''
+    echo -ne "${verde}SPAM-BOT DESATIVADO COM SUCESSO.${tag}"
+    sleep 3s
+    menu
+}
+}
+
+delete() {
+    clear
+    echo -e "${verde}REMOVENDO SPAM-BOT..${tag}"
+    rm -r $HOME/SPAM-BOT
+    sleep 2s
+    npm remove forever -g > /dev/null 2>&1
+    sleep 2s
+    npm remove nodemon -g > /dev/null 2>&1
+    sleep 2s
+    echo "y" | sudo apt-get remove nodejs > /dev/null 2>&1
+    sleep 2s
+    sudo apt-get delete chromium-browser -Y > /dev/null 2>&1
+    sleep 3s
+    echo ''
+    echo -e "${verde}SPAM-BOT REMOVIDO !${tag}"
+    rm -r /bin/spam
+    sleep 2s
+    exit 1
+}
+
+cancell() {
+  echo -e "${red}CANCELADO COM SUCESSO !${tag}"
+  sleep 2s
+  main
+}
+
+remover() {
+  clear
+  echo ""
+  echo -ne "${verde}RELMENTE DESEJA REMOVER O SPAM-BOT? (s/n)${tag}: "; read resp
+  [[ "${resp}" = "N" || "${resp}" = "n" ]] && cancell
+  [[ "${resp}" = "S" || "${resp}" = "s" ]] && delete
+}
+
+
+update() {
+  clear
+  echo ''
+  echo -e "${verde} Essa função ainda em desenvolvimento..${tag}"
+  sleep 3s
+  menu
+}
+qr() {
+    [[ $(screen -list| grep -c 'bot_pix') == '0' ]] && {
+  clear
+  clear
+  echo -e "${red}PRIMEIRO ATIVE O BOT !${tag}"
+  sleep 3s
+  menu
+  } || {
+ echo ''
+  cd $HOME/SPAM-BOT
+  forever logs main.js
+  sleep 10s
+  menu
+}
+}
+
+clear_session() {
+    clear
+    [[ $(screen -list| grep -c 'bot_pix') == '0' ]] && {
+        rm -r $HOME/SPAM-BOT/chorme
+        echo -e "${verde}SESSAO RESTAURADA !${tag}"
+        sleep 3s
+        menu
+        } || {
+            echo -e "${red}DESATIVE O BOT ANTES !${tag}"
+            sleep 1S
+            menu
+            }
+            }
+
+erro() {
+ echo -e "${red} OPÇÃO INVALIDA ${tag}"
+ sleep 1s
+}
+
+main() { 
+menu() {
+ clear
+ echo -e "${red}[${tag}01${red}]${tag} • ${amarelo}ATIVAR SPAM-BOT${tag}";
+ echo -e "${red}[${tag}02${red}]${tag} • ${amarelo}ATUALIZAR SPAM-BOT${tag}"
+ echo -e "${red}[${tag}03${red}]${tag} • ${amarelo}REMOVER SPAM-BOT${tag}"
+ echo -e "${red}[${tag}04${red}]${tag} • ${amarelo}QR CODE${tag}"
+ echo -e "${red}[${tag}05${red}]${tag} • ${amarelo}LIMPAR SESSAO${tag}"
+ echo -e "${red}[${tag}00${red}]${tag} • ${amarelo}SAIR${tag}\n"
+ echo -ne "${verde}INFORME UMA OPÇÃO: ${tag}";
+ read resposta
+}
+menu
+  [[ "${resposta}" = "1" || "${resposta}" = "01" ]] && ativar
+  [[ "${resposta}" = "2" || "${resposta}" = "02" ]] && update
+  [[ "${resposta}" = "3" || "${resposta}" = "03" ]] && { remover return 0 }
+  [[ "${resposta}" = "4" || "${resposta}" = "04" ]] && qr
+  [[ "${resposta}" = "5" || "${resposta}" = "05" ]] && clear_session
+  [[ "${resposta}" = "0" || "${resposta}" = "00" ]] && { exit 1 }
+  [[ "${resposta}" != "1" || "${resposta}" != "01" ||"${resposta}" != "2" || "${resposta}" != "02" || "${resposta}" != "3" || "${resposta}" != "03" || "${resposta}" != "4" || "${resposta}" != "04" || "${resposta}" != "5" || "${resposta}" != "05" ]]  erro 
+  sleep 1s
+  main
+
+}
+main
